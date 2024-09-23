@@ -1,0 +1,38 @@
+<launch>
+  <arg name="f" default="/home/rosz/wheeltec/src/simple_follower/scripts/ByteTrack/exps/example/mot/yolox_s_mix_det.py"/>
+  
+  <node name='visual_MOT' pkg="simple_follower" type="ros_track.py" output="screen" args="-f $(arg f)">
+    <!-- color or the target in HSV color space -->
+    <!-- AstraS相机视觉跟踪阈值 -->
+    <rosparam ns='targetred'>
+      upper : [0, 110, 80]
+      lower : [10, 255, 255]
+      </rosparam>
+    <!-- AstraPro相机视觉跟踪阈值 -->
+    <!-- <rosparam ns='targetred'> -->
+      <!-- upper : [0, 110, 90] -->
+      <!-- lower : [19, 255, 255] -->
+      <!-- </rosparam> -->
+    <rosparam ns='targetblue'>
+      upper : [90, 90, 90]
+      lower : [110, 255, 255]
+      </rosparam>
+    <rosparam ns='targetgreen'>
+      upper : [30, 70, 70]
+      lower : [85, 255, 255]
+      </rosparam>
+    <rosparam ns='targetyellow'>
+      upper : [26, 43, 46]
+      lower : [34, 255, 255]
+      </rosparam>
+    <rosparam ns='pictureDimensions'>
+      <!-- Picture dimensions in pixel -->
+      pictureHeight: 480
+      pictureWidth: 640
+      <!-- Viewing angle of the camera in one direction in Radians -->
+      verticalAngle: 0.43196898986859655
+      horizontalAngle: 0.5235987755982988
+    </rosparam>
+    <param name='targetDist' value='600' type='double' />
+  </node>
+</launch>

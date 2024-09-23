@@ -1,0 +1,6 @@
+<launch>
+  <!-- 开启摄像头  -->
+  <include file="$(find turn_on_wheeltec_robot)/launch/wheeltec_camera.launch" />
+  <!-- 开启MOT跟踪节点  -->
+  <include file='$(find simple_follower)/launch/nodes/visualMOT.launch' />
+</launch>
